@@ -83,6 +83,23 @@ namespace Azure.Provisioning.AppService
             }
         }
 
+        /// <summary> Gets or sets the Http. </summary>
+        public FunctionsScaleAndConcurrencyTriggersHttp TriggersHttp
+        {
+            get
+            {
+                return Triggers is null ? default : Triggers.Http;
+            }
+            set
+            {
+                if (Triggers is null)
+                {
+                    Triggers = new FunctionsScaleAndConcurrencyTriggers();
+                }
+                Triggers.Http = value;
+            }
+        }
+
         /// <summary> Define all the provisionable properties for FunctionAppScaleAndConcurrency. </summary>
         protected override void DefineProvisionableProperties()
         {

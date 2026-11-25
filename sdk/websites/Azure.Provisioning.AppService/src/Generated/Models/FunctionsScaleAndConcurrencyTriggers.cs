@@ -5,7 +5,6 @@
 
 #nullable disable
 
-using Azure.Provisioning;
 using Azure.Provisioning.Primitives;
 
 namespace Azure.Provisioning.AppService
@@ -21,7 +20,7 @@ namespace Azure.Provisioning.AppService
         }
 
         /// <summary> Gets or sets the Http. </summary>
-        internal FunctionsScaleAndConcurrencyTriggersHttp Http
+        public FunctionsScaleAndConcurrencyTriggersHttp Http
         {
             get
             {
@@ -32,23 +31,6 @@ namespace Azure.Provisioning.AppService
             {
                 Initialize();
                 AssignOrReplace(ref _http, value);
-            }
-        }
-
-        /// <summary> Gets or sets the ConcurrentHttpPerInstanceConcurrency. </summary>
-        public BicepValue<int> ConcurrentHttpPerInstanceConcurrency
-        {
-            get
-            {
-                return Http is null ? default : Http.ConcurrentHttpPerInstanceConcurrency;
-            }
-            set
-            {
-                if (Http is null)
-                {
-                    Http = new FunctionsScaleAndConcurrencyTriggersHttp();
-                }
-                Http.ConcurrentHttpPerInstanceConcurrency = value;
             }
         }
 
